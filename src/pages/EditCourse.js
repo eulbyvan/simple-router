@@ -7,7 +7,6 @@ const EditCourse = () => {
     const location = useLocation();
     const params = useParams();
     const [searchParams, setSearchParams] = useSearchParams();
-    // searchParams.get("title")
 
     return (
         <>
