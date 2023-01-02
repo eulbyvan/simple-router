@@ -1,4 +1,5 @@
 import { ROUTES } from "../constants";
+import { Link } from "react-router-dom";
 
 const menu = [
     { path: ROUTES.COURSE_LIST, text: "Course List" },
@@ -10,13 +11,12 @@ const menu = [
 const Navbar = ({ onNavigate }) => (
     <nav>
         {menu.map(item => (
-            <a
-                href="#"
+            <Link
+                to={item.path}
                 style={{ marginRight: 10 }}
-                onClick={() => onNavigate(item.path)}
             >
                 {item.text}
-            </a>
+            </Link>
         ))}
     </nav>
 );

@@ -1,11 +1,21 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../constants";
 
-const AddType = ({ onNavigate }) => (
-    <>
-        <h3>Add Type Page</h3>
-        <p>Params: contoh params</p>
-        <button onClick={() => onNavigate(ROUTES.TYPE_LIST)}>Go To Type List</button>
-    </>
-);
+const AddType = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    return (
+        <>
+            <h3>Add Type Page</h3>
+            <p>Params: {location?.state?.title}</p>
+            <button onClick={() => navigate(ROUTES.TYPE_LIST, {
+                state: {
+                    title: "from Add Type"
+                }
+            })}>Go To Type List</button>
+        </>
+    );
+};
 
 export default AddType;

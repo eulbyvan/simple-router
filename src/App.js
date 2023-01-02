@@ -8,36 +8,26 @@ import TypeList from './pages/TypeList';
 import CourseList from './pages/CourseList';
 import Navbar from './components/Navbar';
 
+import { Routes, Route } from "react-router-dom"
+
+const menu = [
+  { path: "/", index: true, element: <h1>Dashboard Page</h1> },
+  { path: ROUTES.COURSE_LIST, element: <CourseList /> },
+  { path: ROUTES.TYPE_LIST, element: <TypeList /> },
+  { path: ROUTES.ADD_COURSE, element: <AddCourse /> },
+  { path: ROUTES.ADD_TYPE, element: <AddType /> },
+  { path: "*", element: <h1>Page not found!</h1> }
+];
+
 function App() {
-
-  const { ADD_COURSE, ADD_TYPE, TYPE_LIST, COURSE_LIST } = ROUTES;
-
-  const [nav, setNav] = useState(COURSE_LIST);
-
-  let Component;
-
-  switch (nav) {
-    case ADD_COURSE:
-      Component = AddCourse;
-      break;
-    case ADD_TYPE:
-      Component = AddType;
-      break;
-    case TYPE_LIST:
-      Component = TypeList;
-      break;
-    case COURSE_LIST:
-      Component = CourseList;
-      break;
-    default:
-      Component = CourseList;
-      break;
-  }
-
   return (
     <div className="App">
-      <Navbar onNavigate={setNav} />
-      <Component onNavigate={setNav} />
+      <Navbar />
+      <Routes>
+        {menu.map((item) => (
+          <Route path={item.path} element={item.element} index={item.index} />
+        ))}
+      </Routes>
     </div>
   );
 }
