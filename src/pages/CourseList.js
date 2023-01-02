@@ -24,6 +24,11 @@ const CourseList = () => {
                     title: "from Course List"
                 }
             })}>Go To Type List</button>
+            <button onClick={() => navigate(`${ROUTES.EDIT_COURSE}/ini-adalah-id`, {
+                state: {
+                    title: "from Course List"
+                }
+            })}>Go To Edit Course</button>
         </>
     );
 };

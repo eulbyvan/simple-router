@@ -9,6 +9,7 @@ import CourseList from './pages/CourseList';
 import Navbar from './components/Navbar';
 
 import { Routes, Route } from "react-router-dom"
+import EditCourse from './pages/EditCourse';
 
 const menu = [
   { path: "/", index: true, element: <h1>Dashboard Page</h1> },
@@ -16,6 +17,7 @@ const menu = [
   { path: ROUTES.TYPE_LIST, element: <TypeList /> },
   { path: ROUTES.ADD_COURSE, element: <AddCourse /> },
   { path: ROUTES.ADD_TYPE, element: <AddType /> },
+  { path: `${ROUTES.EDIT_COURSE}/:courseId?`, element: <EditCourse /> },
   { path: "*", element: <h1>Page not found!</h1> }
 ];
 
