@@ -4,5 +4,6 @@ export const ROUTES = {
     EDIT_COURSE: "/course/edit",
     TYPE_LIST: "/type",
     ADD_TYPE: "/type/add",
-    DASHBOARD: "/"
+    DASHBOARD: "/",
+    LOGIN: "/login"
 };
