@@ -1,23 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { ROUTES } from './constants';
+import AddCourse from './pages/AddCourse';
+import AddType from './pages/AddType';
+import TypeList from './pages/TypeList';
+import CourseList from './pages/CourseList';
+import Navbar from './components/Navbar';
 
 function App() {
+
+  const { ADD_COURSE, ADD_TYPE, TYPE_LIST, COURSE_LIST } = ROUTES;
+
+  const [nav, setNav] = useState(COURSE_LIST);
+
+  let Component;
+
+  switch (nav) {
+    case ADD_COURSE:
+      Component = AddCourse;
+      break;
+    case ADD_TYPE:
+      Component = AddType;
+      break;
+    case TYPE_LIST:
+      Component = TypeList;
+      break;
+    case COURSE_LIST:
+      Component = CourseList;
+      break;
+    default:
+      Component = CourseList;
+      break;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar onNavigate={setNav} />
+      <Component onNavigate={setNav} />
     </div>
   );
 }
