@@ -28,6 +28,7 @@ function App() {
       <Routes>
         {menu.map((item) => (
           <Route path={item.path} element={item.element} index={item.index} />
+          // <Route path={item.path} element={item.element} index={item.index} component={item} />
         ))}
       </Routes>
     </div>
